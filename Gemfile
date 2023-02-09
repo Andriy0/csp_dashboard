@@ -1,12 +1,23 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Specify your gem's dependencies in csp_dashboard.gemspec.
 gemspec
 
-gem "sqlite3"
+gem 'sqlite3'
 
-gem "sprockets-rails"
+gem 'sprockets-rails'
 
 # Start debugger with binding.b [https://github.com/ruby/debug]
 # gem "debug", ">= 1.0.0"
+
+gem 'puma'
+
+gem 'rubocop-rails'
+gem 'rubocop-rspec'
+
+gem 'rspec-rails'
+gem 'capybara'
+gem 'factory_bot_rails'
+
+gem 'pry'

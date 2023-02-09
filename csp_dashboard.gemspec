@@ -1,14 +1,14 @@
-require_relative "lib/csp_dashboard/version"
+require_relative 'lib/csp_dashboard/version'
 
 Gem::Specification.new do |spec|
-  spec.name        = "csp_dashboard"
+  spec.name        = 'csp_dashboard'
   spec.version     = CspDashboard::VERSION
-  spec.authors     = ["Andriy0"]
-  spec.email       = ["andriy2152@gmail.com"]
+  spec.authors     = ['Andriy0']
+  spec.email       = ['andriy2152@gmail.com']
   # spec.homepage    = "TODO"
-  spec.summary     = "Summary of CspDashboard."
-  spec.description = "Description of CspDashboard."
-  spec.license     = "MIT"
+  spec.summary     = 'Summary of CspDashboard.'
+  spec.description = 'Description of CspDashboard.'
+  spec.license     = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the "allowed_push_host"
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -18,12 +18,12 @@ Gem::Specification.new do |spec|
   # spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
   # spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
 
+  spec.metadata['rubygems_mfa_required'] = 'true'
+
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
-    Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+    Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
   end
 
-  spec.add_dependency "haml"
-  spec.add_dependency "rails", ">= 7.0.4.2"
-
-  spec.add_development_dependency 'puma'
+  spec.add_dependency 'haml'
+  spec.add_dependency 'rails', '>= 7.0.4.2'
 end
