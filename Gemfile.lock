@@ -103,6 +103,11 @@ GEM
       temple (>= 0.8.2)
       thor
       tilt
+    haml-rails (2.1.0)
+      actionpack (>= 5.1)
+      activesupport (>= 5.1)
+      haml (>= 4.0.6)
+      railties (>= 5.1)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     json (2.6.3)
@@ -137,6 +142,8 @@ GEM
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     public_suffix (5.0.1)
     puma (6.0.2)
       nio4r (~> 2.0)
@@ -242,7 +249,8 @@ DEPENDENCIES
   capybara
   csp_dashboard!
   factory_bot_rails
-  pry
+  haml-rails
+  pry-rails
   puma
   rspec-rails
   rubocop-rails

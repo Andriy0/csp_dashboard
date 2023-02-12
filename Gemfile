@@ -13,6 +13,8 @@ gem 'sprockets-rails'
 
 gem 'puma'
 
+gem 'haml-rails'
+
 gem 'rubocop-rails'
 gem 'rubocop-rspec'
 
@@ -20,4 +22,4 @@ gem 'rspec-rails'
 gem 'capybara'
 gem 'factory_bot_rails'
 
-gem 'pry'
+gem 'pry-rails'
