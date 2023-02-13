@@ -3,13 +3,13 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../spec/dummy/config/environment'
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 # ActiveRecord::Migrator.migrations_paths = [File.expand_path("../spec/dummy/db/migrate", __dir__)]
 # ActiveRecord::Migrator.migrations_paths << File.expand_path("../db/migrate", __dir__)
 require 'rspec/rails'
+# Add additional requires below this line. Rails is not loaded until this point!
 require 'support/factory_bot'
 require 'capybara/rspec'
-# Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

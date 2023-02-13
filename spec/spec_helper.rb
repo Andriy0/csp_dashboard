@@ -91,4 +91,7 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+  config.before :each, type: :system do
+    driven_by ENV['NOT_HEADLESS'].present? ? :selenium_chrome : :selenium_chrome_headless
+  end
 end

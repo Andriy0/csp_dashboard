@@ -15,11 +15,12 @@ gem 'puma'
 
 gem 'haml-rails'
 
-gem 'rubocop-rails'
-gem 'rubocop-rspec'
+gem 'rubocop-rails', require: false
+gem 'rubocop-rspec', require: false
 
 gem 'rspec-rails'
 gem 'capybara'
+gem 'webdrivers'
 gem 'factory_bot_rails'
 
 gem 'pry-rails'
