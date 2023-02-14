@@ -1,0 +1,8 @@
+%h2.mb-3 Violation Report
+
+%table.table.table-responsive
+  - report_attributes_for_show.each do |attr|
+    %tr
+      - if (val = @report.public_send(attr).presence)
+        %th= attr
+        %td= val

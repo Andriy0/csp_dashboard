@@ -1,4 +1,8 @@
 require 'haml'
+require 'bootstrap'
+require 'pagy'
+require 'rails-ujs'
+require 'jquery-rails'
 
 module CspDashboard
   class Engine < ::Rails::Engine

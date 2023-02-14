@@ -26,4 +26,8 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'haml'
   spec.add_dependency 'rails', '>= 7.0.4.2'
+  spec.add_dependency 'bootstrap'
+  spec.add_dependency 'jquery-rails'
+  spec.add_dependency 'rails-ujs'
+  spec.add_dependency 'pagy'
 end

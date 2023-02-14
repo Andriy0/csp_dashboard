@@ -1,1 +1,17 @@
-%h2 hello, world
+%h2.mb-3 CSP Violation Reports (#{@pagy.count})
+
+%table.table.table-responsive
+  %tr
+    %th actions
+    - report_attributes_for_index.each do |attr|
+      %th= attr
+
+  - @reports.each do |report|
+    %tr
+      %td
+        = link_to 'show', report
+        = link_to 'delete', report, data: { method: :delete, confirm: 'Are you sure?' }
+      - report_attributes_for_index.each do |attr|
+        %td= report.public_send attr
+
+= pagination(@pagy)

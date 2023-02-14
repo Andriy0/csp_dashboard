@@ -2,12 +2,18 @@ module CspDashboard
   class ViolationReportsController < ApplicationController
     skip_before_action :verify_authenticity_token, only: :create
 
+    before_action :load_report, only: %i(show destroy)
+
+    helper_method :report_attributes_for_index, :report_attributes_for_show
+
     def index
       respond_to do |format|
         format.html { load_reports }
-        # format.png  { respond_with_monthly_bar_graph }
-        # format.zip  { respond_with_zipped_reports }
       end
+    end
+
+    def show
+      load_report
     end
 
     def create
@@ -20,6 +26,12 @@ module CspDashboard
       end
 
       head :ok
+    end
+
+    def destroy
+      @report.destroy
+
+      redirect_to :root
     end
 
     private
@@ -46,12 +58,22 @@ module CspDashboard
       %w(id created_at updated_at archived raw_report raw_browser incoming_ip)
     end
 
-    def set_report
-      @report = CspViolationReport.find params[:id]
+    def report_attributes_for_index
+      %w(id blocked_uri document_uri violated_directive incoming_ip created_at)
+    end
+
+    def report_attributes_for_show
+      %w(id blocked_uri document_uri referrer effective_directive violated_directive
+         original_policy status_code source_file line_number script_sample incoming_ip
+         raw_browser created_at)
+    end
+
+    def load_report
+      @report = CspDashboard::ViolationReport.find params[:id]
     end
 
     def load_reports
-      @reports = CspDashboard::ViolationReport.all
+      @pagy, @reports = pagy(CspDashboard::ViolationReport.order(created_at: :desc), items: 50)
     end
   end
 end
