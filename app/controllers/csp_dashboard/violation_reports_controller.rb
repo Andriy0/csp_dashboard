@@ -23,11 +23,17 @@ module CspDashboard
         save_report report_params
       end
 
-      head :ok
+      head :no_content
     end
 
     def destroy
       @report.destroy
+
+      redirect_to :root
+    end
+
+    def destroy_all
+      CspDashboard::ViolationReport.destroy_all
 
       redirect_to :root
     end

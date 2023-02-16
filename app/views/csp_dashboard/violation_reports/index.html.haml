@@ -1,11 +1,24 @@
 %h2.mb-3 CSP Violation Reports (#{@pagy.count})
 
-= search_form_for @q, class: 'form-row' do |f|
-  .form-group.col-md-4
-    - search_query = (CspDashboard::ViolationReport.ransackable_associations.join('_or_') + '_cont')
-    = f.input search_query.to_sym, as: :search
+.row.align-items-end.justify-content-between
+  = search_form_for @q, class: 'col-6' do |f|
+    .row.align-items-end
+      .col
+        .form-group
+          - search_query = (CspDashboard::ViolationReport.ransackable_associations.join('_or_') + '_cont')
+          = f.input search_query.to_sym, as: :search, label: false,
+            placeholder: search_query + 'ains', input_html: { class: 'form-control-sm' }
 
-  = f.submit 'Search', class: 'btn btn-sm btn-primary'
+      .col-auto.justify-items
+        .mb-3
+          = f.submit 'Filter', class: 'btn btn-sm btn-primary'
+          |
+          = link_to 'Reset', :root, class: 'btn btn-sm btn-outline-danger'
+
+  %section.col-auto
+    .mb-3
+      = link_to 'Delete all', [:violation_reports], class: 'btn btn-sm btn-danger',
+          data: { method: :delete, confirm: 'Are you sure?' }
 
 %table.table.table-responsive.mt-3
   %tr
@@ -20,7 +33,7 @@
     %tr
       %td
         = link_to 'show', report
-        = link_to 'delete', report, data: { method: :delete, confirm: 'Are you sure?' }
+        = link_to 'delete', report, data: { method: :delete }
       - report_attributes_to_display.each do |attr|
         %td= report.public_send attr
 
