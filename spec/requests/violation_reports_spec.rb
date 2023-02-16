@@ -16,6 +16,6 @@ describe 'Violation Report Request' do
       post violation_reports_path, params: { 'csp-report' => report }.to_json
     end.to change(CspDashboard::ViolationReport, :count).by(1)
 
-    expect(response).to have_http_status :ok
+    expect(response).to have_http_status :no_content
   end
 end
