@@ -5,6 +5,8 @@ require 'rails-ujs'
 require 'jquery-rails'
 require 'ransack'
 require 'simple_form'
+require 'chartkick'
+require 'groupdate'
 
 ENV['RANSACK_FORM_BUILDER'] = '::SimpleForm::FormBuilder'
 

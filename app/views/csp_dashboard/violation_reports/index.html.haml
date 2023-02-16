@@ -1,5 +1,8 @@
 %h2.mb-3 CSP Violation Reports (#{@pagy.count})
 
+%section.mb-3
+  = area_chart url_for([:violation_reports_in_last_month, :charts]), download: true
+
 .row.align-items-end.justify-content-between
   = search_form_for @q, class: 'col-6' do |f|
     .row.align-items-end

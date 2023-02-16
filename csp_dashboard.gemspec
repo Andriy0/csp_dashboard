@@ -32,4 +32,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'pagy'
   spec.add_dependency 'ransack'
   spec.add_dependency 'simple_form'
+  spec.add_dependency 'chartkick'
+  spec.add_dependency 'groupdate'
 end
