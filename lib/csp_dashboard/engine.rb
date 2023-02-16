@@ -3,6 +3,10 @@ require 'bootstrap'
 require 'pagy'
 require 'rails-ujs'
 require 'jquery-rails'
+require 'ransack'
+require 'simple_form'
+
+ENV['RANSACK_FORM_BUILDER'] = '::SimpleForm::FormBuilder'
 
 module CspDashboard
   class Engine < ::Rails::Engine

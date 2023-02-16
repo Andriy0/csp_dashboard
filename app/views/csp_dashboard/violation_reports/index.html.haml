@@ -1,17 +1,27 @@
 %h2.mb-3 CSP Violation Reports (#{@pagy.count})
 
-%table.table.table-responsive
+= search_form_for @q, class: 'form-row' do |f|
+  .form-group.col-md-4
+    - search_query = (CspDashboard::ViolationReport.ransackable_associations.join('_or_') + '_cont')
+    = f.input search_query.to_sym, as: :search
+
+  = f.submit 'Search', class: 'btn btn-sm btn-primary'
+
+%table.table.table-responsive.mt-3
   %tr
     %th actions
-    - report_attributes_for_index.each do |attr|
-      %th= attr
+    - report_attributes_to_display.each do |attr|
+      - if CspDashboard::ViolationReport.ransackable_attributes.include? attr
+        %th= sort_link @q, attr.to_sym
+      - else
+        %th= attr
 
   - @reports.each do |report|
     %tr
       %td
         = link_to 'show', report
         = link_to 'delete', report, data: { method: :delete, confirm: 'Are you sure?' }
-      - report_attributes_for_index.each do |attr|
+      - report_attributes_to_display.each do |attr|
         %td= report.public_send attr
 
 = pagination(@pagy)

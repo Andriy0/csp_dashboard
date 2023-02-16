@@ -4,7 +4,7 @@ module CspDashboard
 
     before_action :load_report, only: %i(show destroy)
 
-    helper_method :report_attributes_for_index, :report_attributes_for_show
+    helper_method :report_attributes_to_display
 
     def index
       respond_to do |format|
@@ -12,9 +12,7 @@ module CspDashboard
       end
     end
 
-    def show
-      load_report
-    end
+    def show; end
 
     def create
       report_base = JSON.parse(request.body.read)
@@ -58,14 +56,17 @@ module CspDashboard
       %w(id created_at updated_at archived raw_report raw_browser incoming_ip)
     end
 
-    def report_attributes_for_index
-      %w(id blocked_uri document_uri violated_directive incoming_ip created_at)
-    end
-
-    def report_attributes_for_show
-      %w(id blocked_uri document_uri referrer effective_directive violated_directive
-         original_policy status_code source_file line_number script_sample incoming_ip
-         raw_browser created_at)
+    def report_attributes_to_display(action = :index)
+      case action
+      when :show
+        %w(id blocked_uri document_uri referrer effective_directive violated_directive
+           original_policy status_code source_file line_number script_sample incoming_ip
+           raw_browser created_at)
+      when :index
+        %w(id blocked_uri document_uri violated_directive incoming_ip created_at)
+      else
+        []
+      end
     end
 
     def load_report
@@ -73,7 +74,9 @@ module CspDashboard
     end
 
     def load_reports
-      @pagy, @reports = pagy(CspDashboard::ViolationReport.order(created_at: :desc), items: 50)
+      @q       = ViolationReport.ransack(params[:q])
+      @q.sorts = ['created_at DESC'] if @q.sorts.blank?
+      @pagy, @reports = pagy(@q.result, items: 50)
     end
   end
 end

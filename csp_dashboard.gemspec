@@ -30,4 +30,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'jquery-rails'
   spec.add_dependency 'rails-ujs'
   spec.add_dependency 'pagy'
+  spec.add_dependency 'ransack'
+  spec.add_dependency 'simple_form'
 end
