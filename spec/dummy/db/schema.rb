@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_192022) do
     t.text "document_uri"
     t.string "effective_directive"
     t.string "violated_directive"
-    t.string "original_policy"
+    t.text "original_policy"
     t.string "referrer"
     t.integer "status_code"
     t.json "raw_report"
