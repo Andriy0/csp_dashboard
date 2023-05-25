@@ -7,7 +7,7 @@
 name: "Ruby on Rails CI"
 on:
   push:
-  pull_request:
+  # pull_request:
 jobs:
   test:
     runs-on: ubuntu-latest
