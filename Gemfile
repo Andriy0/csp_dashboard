@@ -17,6 +17,7 @@ gem 'haml-rails'
 
 gem 'rubocop-rails', require: false
 gem 'rubocop-rspec', require: false
+gem 'rubocop-discourse', require: false
 
 gem 'rspec-rails'
 gem 'capybara'

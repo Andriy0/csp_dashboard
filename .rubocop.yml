@@ -1,6 +1,7 @@
 require:
   - rubocop-rspec
   - rubocop-rails
+  - rubocop-discourse
 
 AllCops:
   NewCops: enable
