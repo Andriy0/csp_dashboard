@@ -33,7 +33,7 @@ module CspDashboard
     end
 
     def destroy_all
-      CspDashboard::ViolationReport.destroy_all
+      CspDashboard::ViolationReport.delete_all
 
       redirect_to :root
     end
