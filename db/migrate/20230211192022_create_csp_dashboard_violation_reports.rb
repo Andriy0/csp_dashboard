@@ -6,7 +6,7 @@ class CreateCspDashboardViolationReports < ActiveRecord::Migration[7.0]
       t.text    :document_uri
       t.string  :effective_directive
       t.string  :violated_directive
-      t.text  :original_policy
+      t.text    :original_policy
       t.string  :referrer
       t.integer :status_code
       t.json    :raw_report
