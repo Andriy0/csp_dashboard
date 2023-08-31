@@ -298,10 +298,6 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.4.2)
-    webdrivers (5.3.1)
-      nokogiri (~> 1.6)
-      rubyzip (>= 1.3.0)
-      selenium-webdriver (~> 4.0, < 4.11)
     websocket (1.2.9)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
@@ -325,9 +321,9 @@ DEPENDENCIES
   rubocop-discourse
   rubocop-rails
   rubocop-rspec
+  selenium-webdriver
   sprockets-rails
   sqlite3
-  webdrivers
 
 BUNDLED WITH
    2.3.26

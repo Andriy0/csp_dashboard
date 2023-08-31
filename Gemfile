@@ -21,7 +21,7 @@ gem 'rubocop-discourse', require: false
 
 gem 'rspec-rails'
 gem 'capybara'
-gem 'webdrivers'
+gem 'selenium-webdriver'
 gem 'factory_bot_rails'
 
 gem 'pry-rails'
