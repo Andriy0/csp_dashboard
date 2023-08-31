@@ -88,7 +88,6 @@ GEM
       execjs (~> 2)
     base64 (0.1.1)
     bootstrap (5.3.1)
-    base64 (0.1.1)
     bootstrap (5.2.3)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.8, < 3)
